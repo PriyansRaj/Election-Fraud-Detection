@@ -1,0 +1,11 @@
+2025-10-30 11:16:41 | INFO     | Starting election fraud detection pipeline...
+2025-10-30 11:17:13 | INFO     | Starting election fraud detection pipeline...
+2025-10-30 11:17:13 | ERROR    | CustomError: Error in fraud data preprocessing | Root cause :ZeroDivisionError('division by zero')
+2025-10-30 11:17:13 | DEBUG    | Traceback:
+Traceback (most recent call last):
+  File "C:\Users\eru33\Documents\Project\election-fraud-detection\test.py", line 6, in simulate_error
+    result = 10 / 0
+             ~~~^~~
+ZeroDivisionError: division by zero
+
+2025-10-30 11:17:13 | CRITICAL | Pipeline crashed: [2025-10-30 11:17:13] Error in fraud data preprocessing | Root Cause: ZeroDivisionError('division by zero')

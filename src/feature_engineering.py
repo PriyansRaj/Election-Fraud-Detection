@@ -4,7 +4,7 @@ import os
 import sys
 from src.error import CustomError
 from src.logging import logger
-from src.utils import read_csv
+from src.utils import read_csv,save_df
 
 
 
@@ -13,7 +13,7 @@ class FeatureEngineering:
 
     def __init__(self, csv_path: str = ""):
         self.csv_path = csv_path
-        self.save_path = os.path.join("artifacts", "engineered.csv")
+        self.save_path = os.path.join("data/processed", "engineered.csv")
         self.df = read_csv(csv_path)
 
    
@@ -74,11 +74,6 @@ class FeatureEngineering:
 
 
     def save(self) -> None:
-        try:
-            os.makedirs(os.path.dirname(self.save_path), exist_ok=True)
-            self.df.to_csv(self.save_path, index=False)
-            logger.info(f"Processed data saved to {self.save_path}")
-        except Exception as e:
-            logger.error(f"Error saving processed data: {e}")
-            raise CustomError(e, sys)
+        save_df(self.save_path)
+
 
